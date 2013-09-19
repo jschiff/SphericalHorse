@@ -7,10 +7,10 @@ public class GravityController : MonoBehaviour {
 	private ArrayList gravityConsumers = new ArrayList();
 	
 	// The gravitational constant of our world.
-	public const float G = 1.043e-3f;
+	public const float G = 1.043f;
 	
-	// Use this for initialization
 	void Start () {
+		enabled = false;
 		Object[] producers = FindObjectsOfType(typeof(GravityProducer));
 		foreach(GravityProducer producer in producers) {
 			gravityProducers.Add(producer);
@@ -22,12 +22,13 @@ public class GravityController : MonoBehaviour {
 		}
 	}
 	
+	// Apply each gravity producer to each gravity consumer
 	void FixedUpdate() {
 		foreach(GravityProducer producer in gravityProducers) {
 			foreach(GravityConsumer consumer in gravityConsumers) {
 					
 				float range = producer.Range;
-				Vector3 difference = producer.Rigidbody.position - consumer.Rigidbody.position;
+				Vector3 difference = producer.rigidbody.position - consumer.rigidbody.position;
 				float sqrRange = range * range;
 					
 				if (difference.sqrMagnitude < sqrRange) {
@@ -36,10 +37,6 @@ public class GravityController : MonoBehaviour {
 				}
 			}
 		}
-	}
-	
-	// Update is called once per frame
-	void Update () {
 	}
 }
 }
