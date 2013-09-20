@@ -3,7 +3,6 @@ using System.Collections;
 
 namespace AssemblyCSharp {
 public class LevelControl : MonoBehaviour {
-	private bool objectsAreActive = false;
 	private bool gravityStarted = false;
 	
 	// Use this for initialization
@@ -17,8 +16,6 @@ public class LevelControl : MonoBehaviour {
 			GravityController gc = (GravityController) o;
 			gc.enabled = active;
 		}
-		
-		objectsAreActive = active;
 	}
 	
 	// Update is called once per frame
