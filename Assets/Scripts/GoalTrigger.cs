@@ -17,7 +17,7 @@ public class GoalTrigger : MonoBehaviour {
 	
     void OnTriggerEnter(Collider other) {
 		if (other == playerCollider) {
-			Application.Quit();
+			Destroy(other.gameObject);
 		}
     }
 }

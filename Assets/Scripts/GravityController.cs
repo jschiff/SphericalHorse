@@ -24,9 +24,24 @@ public class GravityController : MonoBehaviour {
 	
 	// Apply each gravity producer to each gravity consumer
 	void FixedUpdate() {
-		foreach(GravityProducer producer in gravityProducers) {
-			foreach(GravityConsumer consumer in gravityConsumers) {
-					
+		ArrayList deleteProds = new ArrayList();
+		
+		for (int i = 0; i < gravityProducers.Count; i++) {
+			GravityProducer producer = (GravityProducer)gravityProducers[i];
+			
+			if (producer == null) {
+				deleteProds.Add(i);
+				continue;
+			}
+			
+			ArrayList deleteCons = new ArrayList();	
+			for(int j = 0; j < gravityConsumers.Count; j++) {
+				GravityConsumer consumer = (GravityConsumer)gravityConsumers[j];
+				if (consumer == null) {
+					deleteCons.Add(j);
+					continue;
+				}
+				
 				float range = producer.Range;
 				Vector3 difference = producer.rigidbody.position - consumer.rigidbody.position;
 				float sqrRange = range * range;
@@ -36,6 +51,14 @@ public class GravityController : MonoBehaviour {
 					consumer.reactTo(producer);
 				}
 			}
+			
+			foreach(int j in deleteCons) {
+				gravityConsumers.RemoveAt(j);
+			}
+		}
+		
+		foreach (int i in deleteProds) {
+			gravityProducers.RemoveAt(i);
 		}
 	}
 }

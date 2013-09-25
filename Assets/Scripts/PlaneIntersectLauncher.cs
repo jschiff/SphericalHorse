@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Launches a rigidbody in the direction of a point in the world where a given plane intersects the ray cast
+ * from the camera to a point on the screen clicked by the user.
+ */
 public class PlaneIntersectLauncher : MonoBehaviour {
 	public float distance;
 	public Vector3 normal;
