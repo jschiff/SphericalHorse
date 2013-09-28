@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.IO;
 using System.Collections;
+using System.IO.Compression;
 
 public class GridBuilder : MonoBehaviour {
 	// Objects to replicate.
