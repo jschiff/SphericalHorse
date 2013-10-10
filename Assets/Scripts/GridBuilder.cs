@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
-using System.IO;
 using System.Collections;
-using System.IO.Compression;
 
+namespace AssemblyCSharp {
 public class GridBuilder : MonoBehaviour {
 	// Objects to replicate.
 	public GameObject[] prefabs;
@@ -66,4 +65,5 @@ public class GridBuilder : MonoBehaviour {
 	void Update () {
 	
 	}
+}
 }
