@@ -7,9 +7,27 @@ using System.Collections.Generic;
 
 namespace AssemblyCSharp {
 public class PNGImporter {
-	public static string[,] buildMatrix (string mapPath, string dictionaryPath) {
-		var dictionary = readDictionary(dictionaryPath);
+
+	public static void main (string[] args) {
+		var dictionary = readDictionaryFile(@"/Users/jschiff/workspace/SphericalHorse/Assets/colormap.map");
+		System.Console.WriteLine(dictionary);
+	}
+
+	public static string[,] buildMatrix (string dictionaryPath, string mapPath) {
+		var dictionary = readDictionaryFile(dictionaryPath);
 		var bitmap = new Bitmap(mapPath);
+		
+		return buildMatrix(dictionary, bitmap);
+	}
+	
+	public static string[,] buildMatrix (Stream dictionaryStream, Stream mapStream) {
+		var dictionary = readDictionary(dictionaryStream);
+		var bitmap = new Bitmap(mapStream);
+		
+		return buildMatrix(dictionary, bitmap);
+	}
+	
+	public static string[,] buildMatrix (Dictionary<System.Drawing.Color, string> dictionary, Bitmap bitmap) {
 		var matrix = new string[bitmap.Width, bitmap.Height];
 			
 		for (int i = 0; i < bitmap.Width; i++) {
@@ -21,22 +39,31 @@ public class PNGImporter {
 			
 		return matrix;
 	}
-		
+	
 	/**
-		 * Dictionary file format is:
-		 * ASCII Encoded
-		 * One entry per line.
-		 * Comment a line by prefixing it with '#'
-		 * Each line should be a hexadecimal 8 byte number, followed by a colon, followed by a second hexadecimal number.
-		 * The first number is a 32 bit color with 8 bits each for Alpha, Red, Green, and Blue respectively.
-		 * The second number is an id to refer to a prefab.
-		 */
+	 * Dictionary  format is:
+	 * ASCII Encoded
+	 * One entry per line.
+	 * Comment a line by prefixing it with '#'
+	 * Each line should be a hexadecimal 8 byte number, followed by a colon, followed by a second hexadecimal number.
+	 * The first number is a 32 bit color with 8 bits each for Alpha, Red, Green, and Blue respectively.
+	 * The second number is an id to refer to a prefab.
+	 */
 	private static Dictionary<System.Drawing.Color, string> readDictionaryFile (string dictionaryFilename) {
 		var fStream = File.OpenRead(dictionaryFilename);
-		return readDictionaryStream(fStream);
+		return readDictionary(fStream);
 	}
 		
-	private static Dictionary<System.Drawing.Color, string> readDictionaryStream (Stream stream) {
+	/**
+	 * Dictionary  format is:
+	 * ASCII Encoded
+	 * One entry per line.
+	 * Comment a line by prefixing it with '#'
+	 * Each line should be a hexadecimal 8 byte number, followed by a colon, followed by a second hexadecimal number.
+	 * The first number is a 32 bit color with 8 bits each for Alpha, Red, Green, and Blue respectively.
+	 * The second number is an id to refer to a prefab.
+	 */
+	private static Dictionary<System.Drawing.Color, string> readDictionary (Stream stream) {
 		var reader = new StreamReader(stream, Encoding.ASCII);
 		var dictionary = new Dictionary<System.Drawing.Color, string>();
 			
@@ -64,14 +91,23 @@ public class PNGImporter {
 			
 		return dictionary;
 	}
-		
-	private static Dictionary<System.Drawing.Color, string> readDictionaryString (string dictionaryContents) {
+	
+	/**
+	 * Dictionary  format is:
+	 * ASCII Encoded
+	 * One entry per line.
+	 * Comment a line by prefixing it with '#'
+	 * Each line should be a hexadecimal 8 byte number, followed by a colon, followed by a second hexadecimal number.
+	 * The first number is a 32 bit color with 8 bits each for Alpha, Red, Green, and Blue respectively.
+	 * The second number is an id to refer to a prefab.
+	 */
+	private static Dictionary<System.Drawing.Color, string> readDictionary (string dictionaryContents) {
 		MemoryStream stream = new MemoryStream();
 		StreamWriter writer = new StreamWriter(stream);
 		writer.Write(dictionaryContents);
 		writer.Flush();
 		stream.Position = 0;
-		return readDictionaryStream(stream);
+		return readDictionary(stream);
 	}
 		
 	private static System.Drawing.Color colorFromString (string color) {

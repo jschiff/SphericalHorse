@@ -28,7 +28,7 @@ public class GridBuilder : MonoBehaviour {
 		int width = map.GetLength(0);
 		int height = map.GetLength(1);
 		
-		Vector3[,] worldPositions = generatePositions(width, height, xAxis, yAxis);
+		Vector3[,] worldPositions = generatePositions(width, height);
 		InstantiatePrefabs(worldPositions, map, prefabs);
 	}
 	
