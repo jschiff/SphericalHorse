@@ -119,8 +119,8 @@ public class PNGImporter : MonoBehaviour {
 				
 			var tokens = line.Split(':');
 			if (tokens.Length == 2) {
-				var color = colorFromString(tokens[0]);
-				dictionary[color] = tokens[1];
+				var color = colorFromString(tokens[0].Trim());
+				dictionary[color] = tokens[1].Trim();
 			}
 				else {
 				throw new IOException("Dictionary format incorrect at line " + lineNum);
