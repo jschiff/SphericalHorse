@@ -1,0 +1,20 @@
+Map design framework:
+
+- Implement filler (including minimum rectangle implementation) to enable filled in maps with low performance impact
+- Static Map analysis:
+  > Not enough room for player spawn
+  > Extraneous inert blocks
+- Automatically fix some static map analysis problems (extraneous inert blocks)
+- Runtime map loader
+- Custom map editor? (probably not)
+- Exportable palette?
+- Extension framework?
+
+Gameplay:
+
+- "Surface mods" / "Towers" (things to place on walls etc)
+- Stock obstacles
+
+Story?
+Level Design?
+Persistent progress?

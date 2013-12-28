@@ -5,9 +5,9 @@ using System.Collections.Generic;
 namespace AssemblyCSharp {
 public class GridBuilder : MonoBehaviour {
 	// Determines direction and spacing for the x axis
-	public Vector3 xAxis = new Vector3(0, 0, -1);
+	public Vector3 xAxis = Vector3.right;
 	// Determines direction and spacing for the y axis
-	public Vector3 yAxis = Vector3.up;
+	public Vector3 yAxis = Vector3.down;
 	// The object at 0, 0 will be here.
 	public Vector3 growFrom = Vector3.zero;
 	

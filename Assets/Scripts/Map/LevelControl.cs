@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 namespace AssemblyCSharp {
 public class LevelControl : MonoBehaviour {
-	private bool gravityStarted = false;
 	private GridBuilder gridBuilder = null;
 	private PNGImporter pngImporter = null;
 	private int currentMap = 0;
@@ -21,8 +20,6 @@ public class LevelControl : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		setGravityControllersActive(false);
-		
 		gameObject.AddComponent<GridBuilder>();
 		gameObject.AddComponent<PNGImporter>();
 		gridBuilder = gameObject.GetComponent<GridBuilder>();
@@ -52,24 +49,6 @@ public class LevelControl : MonoBehaviour {
 		var map = pngImporter.getMatrix();
 		gridBuilder.prefabs = this.prefabMappings;
 		gridBuilder.generate(map);
-	}
-		
-	private void setGravityControllersActive (bool active) {
-		Object[] gravityControllers = FindObjectsOfType(typeof(GravityController));
-		foreach (Object o in gravityControllers) {
-			GravityController gc = (GravityController)o;
-			gc.enabled = active;
-		}
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (Input.GetMouseButtonUp(0)) {
-			if (!gravityStarted) {
-				gravityStarted = true;
-				setGravityControllersActive(true);
-			}
-		}
 	}
 }
 }
