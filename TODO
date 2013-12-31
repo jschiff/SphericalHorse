@@ -14,6 +14,11 @@ Gameplay:
 
 - "Surface mods" / "Towers" (things to place on walls etc)
 - Stock obstacles
+- Replay system
+  > Each "interaction" should be a seek point for the player.
+  > Save state of interactive elements during keyframes.
+  > Time dilation?
+
 
 Story?
 Level Design?
