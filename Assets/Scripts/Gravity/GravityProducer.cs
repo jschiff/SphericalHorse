@@ -7,10 +7,10 @@ namespace AssemblyCSharp
 	{
 		public float Range;
 		public void actOn(GravityConsumer consumer) {
-			var difference = rigidbody.position - consumer.rigidbody.position;
+			var difference = GetComponent<Rigidbody>().position - consumer.GetComponent<Rigidbody>().position;
 			float sqrDistance = difference.sqrMagnitude;
-			var gravityForce = rigidbody.mass * consumer.rigidbody.mass * GravityController.G * difference * (1/sqrDistance);
-			consumer.rigidbody.AddForce(gravityForce);
+			var gravityForce = GetComponent<Rigidbody>().mass * consumer.GetComponent<Rigidbody>().mass * GravityController.G * difference * (1/sqrDistance);
+			consumer.GetComponent<Rigidbody>().AddForce(gravityForce);
 		}
 	}
 }

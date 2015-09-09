@@ -21,8 +21,8 @@ public class PlaneIntersectLauncher : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (objectToLaunch != null && camera != null && Input.GetMouseButtonUp(mouseButton)) {
-			Ray castRay = camera.ScreenPointToRay(Input.mousePosition);
+		if (objectToLaunch != null && GetComponent<Camera>() != null && Input.GetMouseButtonUp(mouseButton)) {
+			Ray castRay = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
 			float enter;
 			
 			// Find intersection

@@ -43,7 +43,7 @@ public class GravityController : MonoBehaviour {
 				}
 				
 				float range = producer.Range;
-				Vector3 difference = producer.rigidbody.position - consumer.rigidbody.position;
+				Vector3 difference = producer.GetComponent<Rigidbody>().position - consumer.GetComponent<Rigidbody>().position;
 				float sqrRange = range * range;
 					
 				if (difference.sqrMagnitude < sqrRange) {
