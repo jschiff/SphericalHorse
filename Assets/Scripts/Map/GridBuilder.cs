@@ -15,6 +15,7 @@ public class GridBuilder : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		growFrom = this.transform.position;
 	}
 	
 	public void generate (string[,] map) {
@@ -61,6 +62,7 @@ public class GridBuilder : MonoBehaviour {
 				if (mapValue != null && objectDictionary.TryGetValue(mapValue, out prefab)) {
 					GameObject instance = (GameObject)Instantiate(prefab);
 					instance.transform.position = worldPositions[i, j];
+					instance.transform.parent = this.transform;
 				}
 			}
 		}
