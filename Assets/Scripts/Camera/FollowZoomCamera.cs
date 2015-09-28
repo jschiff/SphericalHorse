@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FollowZoomCamera : MonoBehaviour {
+public class FollowZoomCamera : MonoBehaviour
+{
 	Quaternion initialRotation;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		initialRotation = transform.rotation;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 		transform.rotation = initialRotation;
 	}
 }
