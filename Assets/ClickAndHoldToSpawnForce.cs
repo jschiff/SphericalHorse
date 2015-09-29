@@ -54,6 +54,7 @@ public class ClickAndHoldToSpawnForce : MonoBehaviour
 			isPlacingorceVector = true;
 			previewTarget = (GameObject)Instantiate (prefabToSpawn);
 			previewTarget.transform.position = mousePositionInWorldOnZPlane ();
+			previewTarget.transform.parent = transform;
 			Debug.Log ("Spawned at" + previewTarget.transform.position);
 		}
 	}

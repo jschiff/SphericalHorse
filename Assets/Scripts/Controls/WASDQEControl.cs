@@ -19,6 +19,7 @@ namespace AssemblyCSharp
 		// Use this for initialization
 		void Start ()
 		{
+			Time.timeScale = 0;
 			if (xAxis) {
 				keyMappings ["Horizontal"] = Vector3.right;
 				//keyMappings[KeyCode.A] = Vector3.left;
@@ -37,9 +38,18 @@ namespace AssemblyCSharp
 			}
 		}
 	
+		void invertTimeScale ()
+		{
+			Time.timeScale = Time.timeScale == 0.0f ? 1.0f : 0.0f;
+		}
+	
 		// Update is called once per frame
 		void Update ()
 		{
+			if (Input.GetKeyDown (KeyCode.Space)) {
+				invertTimeScale ();
+			}
+		
 			foreach (string axisName in keyMappings.Keys) {
 				float axisValue = Input.GetAxis (axisName);
 				if (axisValue != 0.0f) {

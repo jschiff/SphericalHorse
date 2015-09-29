@@ -6,8 +6,11 @@ PhysicMaterial:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Spherical Horse Material
-  dynamicFriction: .600000024
-  staticFriction: .600000024
+  dynamicFriction: .0500000007
+  staticFriction: .100000001
   bounciness: .949999988
   frictionCombine: 0
   bounceCombine: 2
+  frictionDirection2: {x: 0, y: 0, z: 0}
+  dynamicFriction2: 0
+  staticFriction2: 0
