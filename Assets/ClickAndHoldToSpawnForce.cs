@@ -26,7 +26,7 @@ public class ClickAndHoldToSpawnForce : MonoBehaviour
 		// If the thing we hit was the player, send it flying!
 		if (spawnedVectorTarget != null && collision.gameObject.CompareTag ("Player")) {
 			if ((Time.time - lastTimeForceApplied) > rechargeTime) {
-				Rigidbody body = collision.gameObject.rigidbody;
+				Rigidbody body = collision.gameObject.GetComponent<Rigidbody>();
 				body.AddForce (spawnedVectorTarget.transform.localPosition * forceMultiplier);
 				lastTimeForceApplied = Time.time;
 			}
