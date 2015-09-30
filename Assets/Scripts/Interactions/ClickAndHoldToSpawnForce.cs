@@ -17,7 +17,6 @@ public class ClickAndHoldToSpawnForce : MonoBehaviour
 	{
 		if (isPlacingorceVector && previewTarget != null) {
 			previewTarget.transform.position = mousePositionInWorldOnZPlane ();
-			Debug.Log ("Update at " + previewTarget.transform.position);
 		}
 	}
 	
@@ -27,7 +26,7 @@ public class ClickAndHoldToSpawnForce : MonoBehaviour
 		if (spawnedVectorTarget != null && collision.gameObject.CompareTag ("Player")) {
 			if ((Time.time - lastTimeForceApplied) > rechargeTime) {
 				Rigidbody body = collision.gameObject.GetComponent<Rigidbody>();
-				body.AddForce (spawnedVectorTarget.transform.localPosition * forceMultiplier);
+				body.AddForce (spawnedVectorTarget.transform.localPosition * forceMultiplier, ForceMode.Impulse);
 				lastTimeForceApplied = Time.time;
 			}
 		}
@@ -55,7 +54,6 @@ public class ClickAndHoldToSpawnForce : MonoBehaviour
 			previewTarget = (GameObject)Instantiate (prefabToSpawn);
 			previewTarget.transform.position = mousePositionInWorldOnZPlane ();
 			previewTarget.transform.parent = transform;
-			Debug.Log ("Spawned at" + previewTarget.transform.position);
 		}
 	}
 	
@@ -65,7 +63,6 @@ public class ClickAndHoldToSpawnForce : MonoBehaviour
 			spawnedVectorTarget = previewTarget;
 			previewTarget = null;
 			isPlacingorceVector = false;
-			Debug.Log ("Dropped target at " + spawnedVectorTarget.transform.position);
 		}
 	}
 	
