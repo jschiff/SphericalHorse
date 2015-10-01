@@ -7,6 +7,7 @@ TagManager:
   - gR
   - gP
   - Physics
+  - TempCamera
   layers:
   - Default
   - TransparentFX

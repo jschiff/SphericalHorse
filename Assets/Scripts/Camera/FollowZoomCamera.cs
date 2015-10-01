@@ -8,6 +8,11 @@ public class FollowZoomCamera : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+        GameObject tempcam = GameObject.FindGameObjectWithTag("TempCamera");
+        tempcam.SetActive(false);
+        //Destroy(tempcam);
+
+        this.gameObject.SetActive(true);
 		initialRotation = transform.rotation;
 	}
 	

@@ -13,6 +13,8 @@ GameObject:
   - 23: {fileID: 2300000}
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400000}
+  - 82: {fileID: 8240024}
+  - 114: {fileID: 11484202}
   m_Layer: 0
   m_Name: Spherical Horse
   m_TagString: Player
@@ -152,6 +154,76 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130846}
   m_Enabled: 1
+--- !u!82 &8240024
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!92 &9289880
 Behaviour:
   m_ObjectHideFlags: 1
@@ -187,6 +259,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f32ec04d6f476247a961af2732ce4e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11484202
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28804f3fcdb0cdf4bbab8c0f02415154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enterVelocityThreshold: 1
+  audioClips:
+  - {fileID: 8300000, guid: f4e3f9d591b863447867d02d3e3da2b0, type: 3}
+  - {fileID: 8300000, guid: edc213f8750e5874882df910c62d40f4, type: 3}
+  - {fileID: 8300000, guid: 376e1adb337fc9a47a1ed9ea4d86538e, type: 3}
+  - {fileID: 8300000, guid: d0edc92d468a03840bc646a917d0d3dc, type: 3}
+  - {fileID: 8300000, guid: 0774839f6ba6c1340bc486017c12d2dd, type: 3}
 --- !u!124 &12401490
 Behaviour:
   m_ObjectHideFlags: 1
@@ -213,6 +303,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: audioClips.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalScale.x
       value: 1
@@ -262,6 +356,38 @@ Prefab:
       propertyPath: m_ConnectedBody
       value: 
       objectReference: {fileID: 5489592, guid: c688a9107b10544729217639b19ea7fe, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: BypassEffects
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: audioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: f4e3f9d591b863447867d02d3e3da2b0, type: 3}
+    - target: {fileID: 0}
+      propertyPath: audioClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: edc213f8750e5874882df910c62d40f4, type: 3}
+    - target: {fileID: 0}
+      propertyPath: audioClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 376e1adb337fc9a47a1ed9ea4d86538e, type: 3}
+    - target: {fileID: 0}
+      propertyPath: audioClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: d0edc92d468a03840bc646a917d0d3dc, type: 3}
+    - target: {fileID: 0}
+      propertyPath: audioClips.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0774839f6ba6c1340bc486017c12d2dd, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
