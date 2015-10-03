@@ -14,6 +14,7 @@ public class LevelControl : MonoBehaviour {
 	
 	public string[] prefabNames;
 	public GameObject[] prefabs;
+	private Vector3 startingPosition = Vector3.zero;
 	
 	// Mappings from map block type to Prefabs
 	public Dictionary<string, GameObject> prefabMappings;
@@ -48,7 +49,34 @@ public class LevelControl : MonoBehaviour {
 		
 		var map = pngImporter.getMatrix();
 		gridBuilder.prefabs = this.prefabMappings;
-		gridBuilder.generate(map);
+		startingPosition = gridBuilder.generate(map).transform.position;
+	}
+	
+	void pause () {
+		Time.timeScale = 0;
+	}
+		
+	void invertTimeScale () {
+		Time.timeScale = Time.timeScale == 0.0f ? 1.0f : 0.0f;
+	}
+		
+	void resetPlayerLocation () {
+		GameObject player = GameObject.FindGameObjectWithTag("Player");
+		player.transform.position = startingPosition;
+		Rigidbody body = player.GetComponent<Rigidbody>();
+		body.velocity = Vector3.zero;
+		body.angularVelocity = Vector3.zero;
+	}
+		
+	void Update () {
+		if (Input.GetKeyDown(KeyCode.Space)) {
+			invertTimeScale();
+		}
+			
+		if (Input.GetKeyDown(KeyCode.LeftShift)) {
+			//pause();
+			resetPlayerLocation();
+		}
 	}
 }
 }

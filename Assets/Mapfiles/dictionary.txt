@@ -1,3 +1,4 @@
 0xFFCDCDCD : Filler
 0xFF000000 : InertCube
 0xFF800080 : SphericalHorse
+0xFF00CC33 : EndZone

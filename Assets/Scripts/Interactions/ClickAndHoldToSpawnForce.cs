@@ -2,6 +2,7 @@
 
 public class ClickAndHoldToSpawnForce : MonoBehaviour {
 	public GameObject prefabToSpawn;
+	public Color activeColor = Color.cyan;
 	ForceVector forceVector;
 	public float maxSpawnDistance = 50f;
 	GameObject previewTarget = null;
@@ -14,13 +15,16 @@ public class ClickAndHoldToSpawnForce : MonoBehaviour {
 		}
 	}
 	
+	
 	void OnMouseDown () {
 		// Destroy existing target if exists.
 		if (forceVector != null) {
 			Destroy(forceVector);
 			forceVector = null;
+			GetComponent<ColorStack>().Remove(this);
 		}
 		
+		// If holding LCTRL, delete everything.
 		if (!Input.GetKey(KeyCode.LeftControl)) {
 			// Spawn new target.
 			isPlacingorceVector = true;
@@ -32,18 +36,28 @@ public class ClickAndHoldToSpawnForce : MonoBehaviour {
 	
 	void OnMouseUp () {
 		if (isPlacingorceVector) {
-			forceVector = gameObject.AddComponent<ForceVector>();
-			forceVector.target = previewTarget.transform;
+			if (!(previewTarget.transform.localPosition.magnitude > maxSpawnDistance)) {
+				Destroy(previewTarget);
+			}
+			else {
+				forceVector = gameObject.AddComponent<ForceVector>();
+				forceVector.target = previewTarget.transform;
+				GetComponent<ColorStack>().Add(this, activeColor);
+			}
 			previewTarget = null;
 			isPlacingorceVector = false;
 		}
+	}
+	
+	void Start () {
+		
 	}
 	
 	Vector3 mousePositionInWorldOnZPlane () {
 		Camera camera = Camera.main;
 		// Z axis normal plane
 		Plane plane = new Plane(new Vector3(0, 0, -1), 0f);
-		Ray ray = camera.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, camera.nearClipPlane));
+		Ray ray = camera.ScreenPointToRay(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
 		float distanceOfIntersection;
 		plane.Raycast(ray, out distanceOfIntersection);
 		Vector3 mousepos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distanceOfIntersection);
