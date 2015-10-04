@@ -195,7 +195,7 @@ Prefab:
     - target: {fileID: 11400002, guid: 6784426fea8e54cb3a7b031d9995bc49, type: 2}
       propertyPath: prefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 100000, guid: c34c66bf0c4cc4ddd9a30e97264c8dec, type: 2}
+      objectReference: {fileID: 100072, guid: 24a022094c6a14398af4d297ff4fa7fa, type: 2}
     - target: {fileID: 11400002, guid: 6784426fea8e54cb3a7b031d9995bc49, type: 2}
       propertyPath: maps.Array.data[0]
       value: Assets/Mapfiles/sandbox.png

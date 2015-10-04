@@ -11,6 +11,7 @@ public class GridBuilder : MonoBehaviour {
 	// The object at 0, 0 will be here.
 	public Vector3 growFrom = Vector3.zero;
 	public Dictionary<string, GameObject> prefabs;
+	public string mergeable = "InteractionCube";
 	private GameObject player;
 
 	// Use this for initialization
@@ -23,7 +24,9 @@ public class GridBuilder : MonoBehaviour {
 		if (map == null || prefabs == null) {
 			return null;
 		}
-
+		
+		int[,] gridPrototype = new int[map.GetLength(0), map.GetLength(1)];
+		
 		Vector3[,] worldPositions = generatePositions(map);
 		InstantiatePrefabs(worldPositions, map, prefabs);
 		return player;

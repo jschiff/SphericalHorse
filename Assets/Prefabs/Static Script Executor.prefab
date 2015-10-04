@@ -58,18 +58,35 @@ MonoBehaviour:
   prefabNames:
   - InertCube
   - SphericalHorse
+  - EndZone
   prefabs:
   - {fileID: 100000, guid: 0c82c4f0a42114a4889d0d6144db3c6c, type: 2}
   - {fileID: 100000, guid: c34c66bf0c4cc4ddd9a30e97264c8dec, type: 2}
+  - {fileID: 100072, guid: 24a022094c6a14398af4d297ff4fa7fa, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: prefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: prefabNames.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: prefabNames.Array.data[2]
+      value: EndZone
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: prefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 100072, guid: 24a022094c6a14398af4d297ff4fa7fa, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
-  m_IsExploded: 1

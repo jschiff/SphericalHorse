@@ -11,7 +11,6 @@ public class LevelControl : MonoBehaviour {
 	
 	public string dictionary;
 	public string[] maps;
-	
 	public string[] prefabNames;
 	public GameObject[] prefabs;
 	private Vector3 startingPosition = Vector3.zero;
@@ -27,7 +26,6 @@ public class LevelControl : MonoBehaviour {
 		pngImporter = gameObject.GetComponent<PNGImporter>();
 		initPrefabMap(this.prefabNames, this.prefabs);
 		
-		pngImporter.dictionaryFile = dictionary;
 		loadMap(startingMap);
 	}
 	
