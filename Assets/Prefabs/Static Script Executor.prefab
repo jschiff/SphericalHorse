@@ -54,9 +54,9 @@ MonoBehaviour:
   startingMap: 0
   dictionary: Assets/Mapfiles/dictionary.txt
   maps:
-  - Assets/Mapfiles/testmap.png
+  - Assets/Mapfiles/sandbox.png
   prefabNames:
-  - InertCube
+  - InteractionCube
   - SphericalHorse
   - EndZone
   prefabs:
@@ -86,6 +86,10 @@ Prefab:
       propertyPath: prefabs.Array.data[2]
       value: 
       objectReference: {fileID: 100072, guid: 24a022094c6a14398af4d297ff4fa7fa, type: 2}
+    - target: {fileID: 0}
+      propertyPath: prefabNames.Array.data[0]
+      value: InteractionCube
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}

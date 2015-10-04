@@ -6,11 +6,11 @@ public class ClickAndHoldToSpawnForce : MonoBehaviour {
 	ForceVector forceVector;
 	public float maxSpawnDistance = 50f;
 	GameObject previewTarget = null;
-	bool isPlacingorceVector = false;
+	bool isPlacingForceVector = false;
 	
 	// Update is called once per frame
 	void Update () {
-		if (isPlacingorceVector && previewTarget != null) {
+		if (isPlacingForceVector && previewTarget != null) {
 			previewTarget.transform.position = mousePositionInWorldOnZPlane();
 		}
 	}
@@ -27,7 +27,7 @@ public class ClickAndHoldToSpawnForce : MonoBehaviour {
 		// If holding LCTRL, delete everything.
 		if (!Input.GetKey(KeyCode.LeftControl)) {
 			// Spawn new target.
-			isPlacingorceVector = true;
+			isPlacingForceVector = true;
 			previewTarget = (GameObject)Instantiate(prefabToSpawn);
 			previewTarget.transform.position = mousePositionInWorldOnZPlane();
 			previewTarget.transform.parent = transform;
@@ -35,7 +35,7 @@ public class ClickAndHoldToSpawnForce : MonoBehaviour {
 	}
 	
 	void OnMouseUp () {
-		if (isPlacingorceVector) {
+		if (isPlacingForceVector) {
 			if (!(previewTarget.transform.localPosition.magnitude > maxSpawnDistance)) {
 				Destroy(previewTarget);
 			}
@@ -45,7 +45,7 @@ public class ClickAndHoldToSpawnForce : MonoBehaviour {
 				GetComponent<ColorStack>().Add(this, activeColor);
 			}
 			previewTarget = null;
-			isPlacingorceVector = false;
+			isPlacingForceVector = false;
 		}
 	}
 	

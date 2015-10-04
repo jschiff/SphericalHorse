@@ -61,9 +61,9 @@ public class LevelControl : MonoBehaviour {
 	void resetPlayerLocation () {
 		GameObject player = GameObject.FindGameObjectWithTag("Player");
 		player.transform.position = startingPosition;
-		Rigidbody body = player.GetComponent<Rigidbody>();
-		body.velocity = Vector3.zero;
-		body.angularVelocity = Vector3.zero;
+		Rigidbody2D body = player.GetComponent<Rigidbody2D>();
+		body.velocity = Vector2.zero;
+		body.angularVelocity = 0;
 	}
 		
 	void Update () {

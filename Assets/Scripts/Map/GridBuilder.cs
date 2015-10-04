@@ -26,7 +26,6 @@ public class GridBuilder : MonoBehaviour {
 		}
 		
 		int[,] gridPrototype = new int[map.GetLength(0), map.GetLength(1)];
-		
 		Vector3[,] worldPositions = generatePositions(map);
 		InstantiatePrefabs(worldPositions, map, prefabs);
 		return player;

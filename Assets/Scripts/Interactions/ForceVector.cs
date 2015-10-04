@@ -14,12 +14,16 @@ public class ForceVector : MonoBehaviour {
 		colorStack = gameObject.GetComponent<ColorStack>();
 	}
 	
-	void OnTriggerEnter (Collider collider) {
+	void OnCollisionEnter2D (Collision2D coll) {
+		Collider2D collider = coll.collider;
+	
 		// If the thing we hit was the player, send it flying!
 		if (target != null && collider.gameObject.CompareTag("Player")) {
 			if ((Time.time - lastTimeForceApplied) > rechargeTime) {
-				Rigidbody body = collider.gameObject.GetComponent<Rigidbody>();
-				body.AddForce(target.localPosition * forceMultiplier, ForceMode.Impulse);
+				Rigidbody2D body = collider.gameObject.GetComponent<Rigidbody2D>();
+				Vector2 force = new Vector2(target.transform.localPosition.x, target.transform.localPosition.y);
+				force *= forceMultiplier;
+				body.AddForce(force, ForceMode2D.Impulse);
 				lastTimeForceApplied = Time.time;
 				
 				colorStack.Add(this, impactColor);

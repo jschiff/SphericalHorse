@@ -9,12 +9,13 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 33: {fileID: 3300000}
-  - 135: {fileID: 13500000}
   - 23: {fileID: 2300000}
-  - 54: {fileID: 5400000}
   - 114: {fileID: 11400000}
   - 82: {fileID: 8240024}
   - 114: {fileID: 11484202}
+  - 50: {fileID: 5072672}
+  - 58: {fileID: 5883988}
+  - 114: {fileID: 11481116}
   m_Layer: 0
   m_Name: Spherical Horse
   m_TagString: Player
@@ -132,21 +133,35 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &5400000
-Rigidbody:
+--- !u!50 &5072672
+Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 1
+  m_LinearDrag: .00100000005
+  m_AngularDrag: 1
+  m_GravityScale: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 8
-  m_CollisionDetection: 2
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!58 &5883988
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: 0a755387372d44f8c8ad85e5c9aa7179, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: .5
 --- !u!81 &8110236
 AudioListener:
   m_ObjectHideFlags: 1
@@ -242,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4843643eb43d9fa42b133f493741f63f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  body: {fileID: 5400000}
+  body: {fileID: 5072672}
   forceMultiplier: 200
   ignorePhysics: 0
   xAxis: 1
@@ -259,6 +274,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f32ec04d6f476247a961af2732ce4e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11481116
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28804f3fcdb0cdf4bbab8c0f02415154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enterVelocityThreshold: 1
+  audioClips:
+  - {fileID: 8300000, guid: f4e3f9d591b863447867d02d3e3da2b0, type: 3}
+  - {fileID: 8300000, guid: edc213f8750e5874882df910c62d40f4, type: 3}
+  - {fileID: 8300000, guid: 376e1adb337fc9a47a1ed9ea4d86538e, type: 3}
+  - {fileID: 8300000, guid: d0edc92d468a03840bc646a917d0d3dc, type: 3}
+  - {fileID: 8300000, guid: 0774839f6ba6c1340bc486017c12d2dd, type: 3}
 --- !u!114 &11484202
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -284,18 +317,6 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130846}
   m_Enabled: 1
---- !u!135 &13500000
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Material: {fileID: 13400000, guid: b688f929932ef4f509bcfe212a319651, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: .5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -326,8 +347,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 13400000, guid: b688f929932ef4f509bcfe212a319651,
-        type: 2}
+      objectReference: {fileID: 6200000, guid: 0a755387372d44f8c8ad85e5c9aa7179, type: 2}
     - target: {fileID: 0}
       propertyPath: forceMultiplier
       value: 200
@@ -350,7 +370,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_AngularDrag
-      value: .0500000007
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_ConnectedBody
@@ -388,6 +408,30 @@ Prefab:
       propertyPath: audioClips.Array.data[4]
       value: 
       objectReference: {fileID: 8300000, guid: 0774839f6ba6c1340bc486017c12d2dd, type: 3}
+    - target: {fileID: 0}
+      propertyPath: body
+      value: 
+      objectReference: {fileID: 5072672}
+    - target: {fileID: 0}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LinearDrag
+      value: .00100000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
