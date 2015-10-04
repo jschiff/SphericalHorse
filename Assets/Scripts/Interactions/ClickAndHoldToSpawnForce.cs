@@ -4,7 +4,7 @@ public class ClickAndHoldToSpawnForce : MonoBehaviour {
 	public GameObject prefabToSpawn;
 	public Color activeColor = Color.cyan;
 	ForceVector forceVector;
-	public float maxSpawnDistance = 50f;
+	public float maxSpawnDistance = 10f;
 	GameObject previewTarget = null;
 	bool isPlacingForceVector = false;
 	
@@ -12,6 +12,11 @@ public class ClickAndHoldToSpawnForce : MonoBehaviour {
 	void Update () {
 		if (isPlacingForceVector && previewTarget != null) {
 			previewTarget.transform.position = mousePositionInWorldOnZPlane();
+			if (previewTarget.transform.localPosition.magnitude > maxSpawnDistance) {
+				Destroy(previewTarget);
+				previewTarget = null;
+				isPlacingForceVector = false;
+			}
 		}
 	}
 	
@@ -36,7 +41,7 @@ public class ClickAndHoldToSpawnForce : MonoBehaviour {
 	
 	void OnMouseUp () {
 		if (isPlacingForceVector) {
-			if (!(previewTarget.transform.localPosition.magnitude > maxSpawnDistance)) {
+			if (previewTarget.transform.localPosition.magnitude > maxSpawnDistance) {
 				Destroy(previewTarget);
 			}
 			else {

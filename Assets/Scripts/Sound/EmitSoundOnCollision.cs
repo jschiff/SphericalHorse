@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class EmitSoundOnCollision : MonoBehaviour {
-	public float enterVelocityThreshold = 1;
+	public float enterVelocityThreshold = 2;
 	public AudioClip[] audioClips;
 
 	void OnCollisionEnter2D (Collision2D collision) {

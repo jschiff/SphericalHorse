@@ -3,7 +3,7 @@ using UnityEngine;
 public class ForceVector : MonoBehaviour {
 	public Transform target;
 	public Color impactColor = Color.white;
-	public float forceMultiplier = 1f;
+	public float forceMultiplier = 2f;
 	public float rechargeTime = .5f;
 	ColorStack colorStack;
 	bool isChangedColor;
@@ -47,6 +47,8 @@ public class ForceVector : MonoBehaviour {
 	}
 	
 	void OnDestroy () {
+		colorStack.Remove(this);
+	
 		if (target != null) {
 			Destroy(target.gameObject);
 		}

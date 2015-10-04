@@ -106,7 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabToSpawn: {fileID: 100000, guid: b315b41221108d74592db3f90031a0a1, type: 2}
   activeColor: {r: 0, g: 1, b: 1, a: 1}
-  maxSpawnDistance: 0
+  maxSpawnDistance: 10
 --- !u!114 &11481530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -144,6 +144,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_IsKinematic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxSpawnDistance
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
