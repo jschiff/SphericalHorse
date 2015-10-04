@@ -285,7 +285,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28804f3fcdb0cdf4bbab8c0f02415154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enterVelocityThreshold: 1
+  volumeMax: 3
+  volumeMin: 1.60000002
   audioClips:
   - {fileID: 8300000, guid: f4e3f9d591b863447867d02d3e3da2b0, type: 3}
   - {fileID: 8300000, guid: edc213f8750e5874882df910c62d40f4, type: 3}
@@ -303,13 +304,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28804f3fcdb0cdf4bbab8c0f02415154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enterVelocityThreshold: 1
+  volumeMax: 6
+  volumeMin: 1
   audioClips:
-  - {fileID: 8300000, guid: f4e3f9d591b863447867d02d3e3da2b0, type: 3}
-  - {fileID: 8300000, guid: edc213f8750e5874882df910c62d40f4, type: 3}
-  - {fileID: 8300000, guid: 376e1adb337fc9a47a1ed9ea4d86538e, type: 3}
-  - {fileID: 8300000, guid: d0edc92d468a03840bc646a917d0d3dc, type: 3}
-  - {fileID: 8300000, guid: 0774839f6ba6c1340bc486017c12d2dd, type: 3}
+  - {fileID: 8300000, guid: f056d15c30c444c5cb797b3706bd7f9b, type: 3}
+  - {fileID: 8300000, guid: 3336dab430c594769b00a87ac844556a, type: 3}
+  - {fileID: 8300000, guid: 00bb9df37f0b9422293b104f47f96fd2, type: 3}
+  - {fileID: 8300000, guid: 157869a0d94f7494fb96f935b2b34d87, type: 3}
+  - {fileID: 8300000, guid: 106ed0ed3928148afb2f46d5bc31b3bc, type: 3}
 --- !u!124 &12401490
 Behaviour:
   m_ObjectHideFlags: 1
@@ -391,23 +393,23 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: audioClips.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: f4e3f9d591b863447867d02d3e3da2b0, type: 3}
+      objectReference: {fileID: 8300000, guid: f056d15c30c444c5cb797b3706bd7f9b, type: 3}
     - target: {fileID: 0}
       propertyPath: audioClips.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: edc213f8750e5874882df910c62d40f4, type: 3}
+      objectReference: {fileID: 8300000, guid: 3336dab430c594769b00a87ac844556a, type: 3}
     - target: {fileID: 0}
       propertyPath: audioClips.Array.data[2]
       value: 
-      objectReference: {fileID: 8300000, guid: 376e1adb337fc9a47a1ed9ea4d86538e, type: 3}
+      objectReference: {fileID: 8300000, guid: 00bb9df37f0b9422293b104f47f96fd2, type: 3}
     - target: {fileID: 0}
       propertyPath: audioClips.Array.data[3]
       value: 
-      objectReference: {fileID: 8300000, guid: d0edc92d468a03840bc646a917d0d3dc, type: 3}
+      objectReference: {fileID: 8300000, guid: 157869a0d94f7494fb96f935b2b34d87, type: 3}
     - target: {fileID: 0}
       propertyPath: audioClips.Array.data[4]
       value: 
-      objectReference: {fileID: 8300000, guid: 0774839f6ba6c1340bc486017c12d2dd, type: 3}
+      objectReference: {fileID: 8300000, guid: 106ed0ed3928148afb2f46d5bc31b3bc, type: 3}
     - target: {fileID: 0}
       propertyPath: body
       value: 
@@ -436,6 +438,18 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 96c95c03ed46d443bbeff127445d0c5e, type: 2}
+    - target: {fileID: 0}
+      propertyPath: enterVelocityThreshold
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: volumeMax
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: volumeMin
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
